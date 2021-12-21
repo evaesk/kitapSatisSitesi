@@ -1,0 +1,40 @@
+﻿
+@{
+    ViewBag.Title = "Adres";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("Summary", "Cart")
+            </ul>
+        </div>
+
+
+        @Html.Action("_FeaturedProductList", "home")
+
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="/home/Index">Anasayfa</a> <span class="divider">/</span></li>
+          
+            <li class="active">Adres</li>
+        </ul>
+        <div class="well well-small">
+            <h4>Adres : Firma Adres Bilgisi</h4>
+            <h4>Telefon : Firma Telefon Bilgisi</h4>
+            <hr class="softn clr">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.7454157771294!2d29.96731481517462!3d40.72362057933066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cb452c39e5717b%3A0x4fed2448ab2e1724!2sKocaeli%20Meslek%20Y%C3%BCksek%20Okulu!5e0!3m2!1str!2str!4v1639960055316!5m2!1str!2str"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+
+
+
+        </div>
+    </div>
+</div>
+

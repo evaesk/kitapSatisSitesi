@@ -1,0 +1,5 @@
+﻿@model odev_05.Models.Cart
+<a href="/Cart/Index">
+    <span class="icon-shopping-cart"></span>[@Model.Cartlines.Count] Adet Ürün
+    <span class="badge badge-warning">@Model.Total().ToString("c")</span>
+</a>

@@ -1,0 +1,92 @@
+﻿@using odev_05.Entity;
+@model product
+
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("Summary", "Cart")
+            </ul>
+        </div>
+
+        
+        @Html.Action("_FeaturedProductList", "home")
+
+    </div>
+    <div class="span9">
+        <ul class="breadcrumb">
+            <li><a href="/home/Index">Anasayfa</a> <span class="divider">/</span></li>
+            <li><a href="/home/product">Ürünler</a> <span class="divider">/</span></li>
+            <li class="active">Ürün Bilgi</li>
+        </ul>
+        <div class="well well-small">
+            <div class="row-fluid">
+                <div class="span5">
+                    <div id="myCarousel" class="carousel slide cntr">
+                        
+                            <div class="item active left">
+                                <a href="#"> <img src="~/Content/Image/@Model.Image" alt="" style="width:100%"></a>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+                <div class="span7">
+                    <h3>@Model.Name (Ciltsiz)</h3>
+                    <hr class="soft">
+                    @using(Html.BeginForm("AddToCart","Cart",new { @class= "form - horizontal qtyFrm" }))
+                    {
+                          @Html.HiddenFor(i=>i.Id)
+                        <div class="control-group">
+                            <label class="control-label"><span>@Model.Price ₺ </span></label>
+                          
+                        </div>
+
+                       
+                       
+                        <h4>Stokta @Model.Stock ürün </h4>
+                        <p>
+                           &quot;@Model.LittleDescription &quot;
+                        </p><p>
+                            <button type="submit" class="shopBtn"><span class=" icon-shopping-cart"></span> Sepete ekle</button>
+                        </p>
+                      
+                     }
+                </div>
+            </div>
+            <hr class="softn clr">
+
+
+            <ul id="productDetail" class="nav nav-tabs">
+                <li class="active"><a href="#home" data-toggle="tab">Ürün Bilgileri</a></li>
+                
+                
+            </ul>
+            <div id="myTabContent" class="tab-content tabWrapper">
+                <div class="tab-pane fade active in" id="home">
+                    <h4>Ürün Bilgileri</h4>
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr class="techSpecRow"><td class="techSpecTD1">Çevirmen:</td><td class="techSpecTD2">@Model.Translater</td></tr> 
+                            <tr class="techSpecRow"><td class="techSpecTD1">Yazar:</td><td class="techSpecTD2">@Model.Author</td></tr>
+                            <tr class="techSpecRow"><td class="techSpecTD1">Sayfa Sayısı:</td><td class="techSpecTD2">@Model.Page</td></tr>
+                            <tr class="techSpecRow"><td class="techSpecTD1">Yayın Tarihi:</td><td class="techSpecTD2">@Model.Date</td></tr>
+                            <tr class="techSpecRow"><td class="techSpecTD1">Dil:</td><td class="techSpecTD2">@Model.Language</td></tr>
+                            <tr class="techSpecRow"><td class="techSpecTD1">Kağıt Cinsi:</td><td class="techSpecTD2">@Model.PaperType</td></tr>
+                            <tr class="techSpecRow"><td class="techSpecTD1">Boyut:</td><td class="techSpecTD2">@Model.Size</td></tr>
+                        </tbody>
+                    </table>
+                   
+                    <p>@Model.Description</p>
+
+                </div>
+                
+            </div>
+
+        </div>
+    </div>
+</div>
+

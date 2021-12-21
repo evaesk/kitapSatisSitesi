@@ -1,0 +1,27 @@
+﻿@using odev_05.Entity
+@model IEnumerable<product>
+<div id="myCarousel" class="carousel slide homCar">
+    <div class="carousel-inner">
+        
+        @foreach (var item in Model)
+        {
+            <div class="item">
+                
+                <a href="/home/Productdetails/@item.Id"><img style="width:100%; max-width:698px; max-height:327px; min-height:327px; min-width:698px;" src="~/Content/image2/@item.image2" alt=""></a>
+               
+              
+                <div class="carousel-caption">
+                        <h4>@item.Name</h4>
+                    <br />
+                        <p style="font-size: 30px; text-align: justify; "><span>@item.Price ₺</span></p>
+                   
+                </div>
+            </div>
+
+        }
+
+
+    </div>
+    <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+    <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+</div>

@@ -1,0 +1,52 @@
+﻿@using odev_05.Entity;
+@model IEnumerable<product>
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div id="sidebar" class="span3">
+        <div class="well well-small">
+            <ul class="nav nav-list">
+                @Html.Action("_CategoryList", "Category")
+                <li style="border:0"> &nbsp;</li>
+                @Html.Action("Summary", "Cart")
+            </ul>
+        </div>
+
+       
+        @Html.Action("_FeaturedProductList", "home")
+
+    </div>
+    <div class="span9">
+        <!--
+        New Products
+        -->
+        
+        <h3>Ürünler </h3>
+
+        <ul class="thumbnails">
+
+            @foreach (var item in Model)
+            {
+                <li class="span3">
+                    <div class="thumbnail">
+
+                        <a href="/home/ProductDetails/@item.Id"><img src="~/Content/Image/@item.Image" style="max-width:207px;max-height:247px;min-width:207px;min-height:247px;" alt=""></a>
+                        <div class="caption cntr">
+                            <p>@item.Name</p>
+                            <p><strong>@item.Price</strong></p>
+                            <h4><a class="shopBtn" href="/home/ProductDetails/@item.Id" title="add to cart"> Görüntüle </a></h4>
+
+                            <br class="clr">
+                        </div>
+                    </div>
+                </li>
+            }
+        </ul>
+
+
+
+    </div>
+</div>

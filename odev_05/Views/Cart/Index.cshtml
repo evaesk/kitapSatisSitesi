@@ -1,0 +1,86 @@
+﻿@model odev_05.Models.Cart
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="span12">
+        
+        <div class="well well-small">
+            @if (Model.Cartlines.Count > 0)
+            {
+                <table class="table table-bordered table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Ürün Görseli</th>
+                            <th>Ürün Adı</th>
+                            <th>Ürün Adedi</th>
+                            <th>Ürün Fiyatı</th>
+                            <th>Toplam Fiyat</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Cartlines)
+                        {
+                            <tr>
+                                <td><img width="100" src="~/Content/Image/@item.product.Image" alt=""></td>
+                                <td>@item.product.Name</td>
+                                <td>@item.Quantity</td>
+                                <td>@item.product.Price ₺</td>
+                                <td>@((item.product.Price*item.Quantity).ToString("c"))</td>
+                                <td>
+                                    @using (Html.BeginForm("RemoveFromCart", "Cart"))
+                                    {
+                                        @Html.Hidden("Id", item.product.Id)
+                                        <button type="submit" class="btn btn-danger"><span class="icon-remove"></span>Sil</button>
+                                    }
+
+                                </td>
+
+                            </tr>
+                        }
+                        <tr>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th></th>
+                            <th style="display:block">Toplam Fiyat :@Model.Total().ToString("c")</th>
+                            <th></th>
+                        </tr>
+
+                    </tbody>
+                </table><br>
+
+
+
+            }
+            else
+            {
+                <div class="alert alert-warning">
+                    <p>
+                        Sepetinizde Ürün Bulunmamaktadır...
+                    </p>
+
+
+                </div>
+            }
+
+
+            <a href="/home/Index" class="shopBtn btn-large"><span class="icon-arrow-left"></span> Alışverişe Devam Et </a>
+            @if (Request.IsAuthenticated)
+             {
+                <a href="/Cart/Checkout" class="shopBtn btn-large pull-right">Siparişi Onayla <span class="icon-arrow-right"></span></a>
+             }
+            else 
+            { 
+                <a href="/Account/Login" class="shopBtn btn-large pull-right">Siparişi Onayla <span class="icon-arrow-right"></span></a>
+            }
+
+
+        </div>
+    </div>
+</div>
+

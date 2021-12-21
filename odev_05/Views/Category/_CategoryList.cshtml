@@ -1,0 +1,8 @@
+﻿@using odev_05.Models
+@model IEnumerable<CategoryModel>
+<li><a href="/home/product"><span class="icon-chevron-right"></span>TÜM ÜRÜNLER</a></li>
+@foreach (var item in Model)
+{
+<li><a href="/home/ProductList/@item.Id"><span class="icon-chevron-right"></span>@item.Name</a></li>
+}
+

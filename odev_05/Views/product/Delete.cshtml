@@ -1,0 +1,178 @@
+﻿@model odev_05.Entity.product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<section class="content">
+    <div>
+        <br />
+        <h3 style="text-align:center"><strong>Silme</strong></h3>
+        <<br />
+        <h3>Bu ürünü silmek istediğinizden emin misiniz?</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                Kategori Adı :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                Ürün Adı :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                Yazar Adı :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Author)
+            </dd>
+
+            <dt>
+                Sayfa Sayısı :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Page)
+            </dd>
+
+            <dt>
+                Kitap Açıklaması :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+            <dt>
+                Ürün görseli :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Image)
+                <img src="~/Content/Image/@Model.Image" width="50" height="40" />
+            </dd>
+            <dd>
+                @Html.DisplayFor(model => model.image2)
+                <img src="~/Content/image2/@Model.image2" width="50" height="40" />
+            </dd>
+
+            <dt>
+                Ürün Fiyatı :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Price)
+            </dd>
+
+            <dt>
+                Stok Adeti :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Stock)
+            </dd>
+
+            <dt>
+                Slaytta Bulunma :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Slider)
+            </dd>
+
+            <dt>
+                Anasayfada Bulunma :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsHome)
+            </dd>
+
+            <dt>
+                Popülerlik :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsFeatured)
+            </dd>
+
+            <dt>
+                Onaylı :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsApproved)
+            </dd>
+
+            <dt>
+                Son Basım Tarihi :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                Dil :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Language)
+            </dd>
+
+            <dt>
+                Kağıt Cinsi :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PaperType)
+            </dd>
+
+            <dt>
+                Boyut :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>
+
+            <dt>
+                Kısa Açıklama :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LittleDescription)
+            </dd>
+
+            <dt>
+                Çevirmen :
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Translater)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                <input type="submit" value="Sil" class="btn btn-danger" />
+                @Html.ActionLink("Kategori Listesine Geri Dön", "Index", null, new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+</section>
